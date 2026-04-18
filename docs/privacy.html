@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سياسة الخصوصية — تدبّر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2D7A52;
+      --green-dark: #1f5c3d;
+      --amber:      #D0A06B;
+      --bg:         #F9F7F2;
+      --text:       #1a1a1a;
+      --text-muted: #6b6b6b;
+      --radius:     12px;
+    }
+
+    body {
+      font-family: 'Noto Naskh Arabic', serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.8;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--green);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    .nav-brand {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-back {
+      margin-right: auto;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--amber); }
+
+    /* PAGE */
+    .page {
+      max-width: 720px;
+      margin: 3rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: .3rem;
+    }
+    .page-header .updated {
+      font-size: .9rem;
+      color: var(--text-muted);
+    }
+    .header-divider {
+      width: 50px;
+      height: 4px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin: .75rem auto 0;
+    }
+
+    /* CONTENT CARD */
+    .content-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      padding: 2rem 2.5rem;
+    }
+
+    .content-card section {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid #ece9e1;
+    }
+    .content-card section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .content-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .content-card h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+    .content-card p {
+      color: var(--text-muted);
+      font-size: .97rem;
+    }
+    .content-card a {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .9rem;
+      font-family: 'Noto Naskh Arabic', serif;
+    }
+    footer a { color: var(--amber); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .content-card { padding: 1.25rem 1.25rem; }
+      nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">تدبّر</a>
+    <a href="index.html" class="nav-back">← الرئيسية</a>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <h1>سياسة الخصوصية</h1>
+      <p class="updated">آخر تحديث: ١٣ أبريل ٢٠٢٦</p>
+      <div class="header-divider"></div>
+    </div>
+
+    <div class="content-card">
+
+      <section>
+        <h2>نظرة عامة</h2>
+        <p>تدبّر هو تطبيق لتعلّم مفردات القرآن الكريم. لا يجمع التطبيق أي بيانات شخصية ولا يخزنها ولا يشاركها مع أي طرف.</p>
+      </section>
+
+      <section>
+        <h2>البيانات المخزّنة على جهازك</h2>
+        <p>يُخزَّن تقدمك في التعلّم — بما في ذلك الكلمات المحفوظة وجدول المراجعة وسجل النشاط — محليًا على جهازك فقط عبر قاعدة بيانات خاصة. هذه البيانات لا تغادر جهازك ولا يمكن للمطوّر الوصول إليها.</p>
+      </section>
+
+      <section>
+        <h2>الإشعارات</h2>
+        <p>إذا فعّلت التذكيرات اليومية، يقوم التطبيق بجدولة إشعارات محلية على جهازك. لا يُرسَل أي محتوى إشعار إلى أي خادم خارجي.</p>
+      </section>
+
+      <section>
+        <h2>تقارير الأخطاء</h2>
+        <p>إذا أرسلت تقرير خطأ عبر نموذج داخل التطبيق، يُرسَل التقرير إلى Google Forms وقد يتضمن وصفًا كتبته. تسري على هذه البيانات <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.</p>
+      </section>
+
+      <section>
+        <h2>خدمات الطرف الثالث</h2>
+        <p>لا يستخدم التطبيق أي حزم للتحليلات أو الإعلانات أو تتبع السلوك.</p>
+      </section>
+
+      <section>
+        <h2>الأطفال</h2>
+        <p>لا يجمع التطبيق بيانات من أي شخص، بمن فيهم الأطفال.</p>
+      </section>
+
+      <section>
+        <h2>تواصل معنا</h2>
+        <p>لأي استفسار حول سياسة الخصوصية، تواصل معنا عبر: <a href="mailto:tadabburalquean111@gmail.com">tadabburalquean111@gmail.com</a></p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="index.html">الرئيسية</a> · © ٢٠٢٦ تدبّر</p>
+  </footer>
+
+</body>
+</html>

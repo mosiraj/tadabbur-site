@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تدبّر — تعلّم مفردات القرآن الكريم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #2D7A52;
+      --green-dark: #1f5c3d;
+      --green-light: #e8f4ee;
+      --amber:  #D0A06B;
+      --amber-light: #f7efe4;
+      --bg:     #F9F7F2;
+      --text:   #1a1a1a;
+      --text-muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Naskh Arabic', serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--green);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    .nav-brand {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+    }
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      background: rgba(255,255,255,.15);
+      border: 3px solid rgba(255,255,255,.35);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 3rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: .5rem;
+      letter-spacing: .04em;
+    }
+    .hero .tagline {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--amber);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.8);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.6rem;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+    .btn-primary {
+      background: var(--amber);
+      color: #fff;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,.5);
+      color: #fff;
+    }
+    .btn-soon {
+      font-size: .72rem;
+      background: rgba(255,255,255,.15);
+      color: rgba(255,255,255,.7);
+      border-radius: 6px;
+      padding: .15rem .4rem;
+      margin-right: .2rem;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 4rem 1.5rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: .5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+    .divider {
+      width: 50px;
+      height: 4px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin: .6rem auto 2rem;
+    }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots-section { background: var(--green-light); }
+    .screenshot-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--amber) transparent;
+    }
+    .screenshot-track::-webkit-scrollbar { height: 5px; }
+    .screenshot-track::-webkit-scrollbar-track { background: transparent; }
+    .screenshot-track::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+    .screenshot-track img {
+      height: 540px;
+      width: auto;
+      border-radius: var(--radius);
+      scroll-snap-align: start;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      border-top: 4px solid var(--green);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: .4rem;
+    }
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: .95rem;
+    }
+
+    /* ── VIDEO ── */
+    .video-section { background: var(--amber-light); }
+    .video-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .video-placeholder {
+      background: #1a1a1a;
+      border-radius: var(--radius);
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: rgba(255,255,255,.7);
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(45,122,82,.3) 0%, transparent 70%);
+    }
+    .play-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,255,255,.12);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .video-placeholder span { position: relative; z-index: 1; }
+
+    /* ── DOWNLOAD ── */
+    .download-section {
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+    }
+    .download-section .section-title { color: #fff; }
+    .download-section .section-subtitle { color: rgba(255,255,255,.75); }
+    .store-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3rem;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: var(--radius);
+      padding: 1rem 2rem;
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      min-width: 200px;
+    }
+    .store-btn:hover {
+      background: rgba(255,255,255,.18);
+      transform: translateY(-2px);
+    }
+    .store-btn .store-icon { font-size: 2rem; }
+    .store-btn .store-name { font-size: 1rem; font-weight: 700; }
+    .store-btn .store-badge {
+      font-size: .72rem;
+      background: var(--amber);
+      color: #fff;
+      padding: .15rem .5rem;
+      border-radius: 20px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: .9rem;
+    }
+    footer a {
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: .75rem; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .screenshot-track img { height: 400px; }
+      .store-btn { min-width: 160px; padding: .8rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">تدبّر</a>
+    <ul class="nav-links">
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="#screenshots">لقطات</a></li>
+      <li><a href="#video">فيديو</a></li>
+      <li><a href="#download">تحميل</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-logo">📖</div>
+    <h1>تدبّر</h1>
+    <p class="tagline">تعلّم مفردات القرآن الكريم</p>
+    <p class="sub">
+      تطبيق بطاقات تعليمية بنظام التكرار المتباعد، يساعدك على حفظ مفردات القرآن الكريم سورةً سورة وجزءًا جزءًا — بخطوات يومية بسيطة.
+    </p>
+    <div class="hero-buttons">
+      <a href="#download" class="btn btn-primary">تحميل التطبيق</a>
+      <a href="#screenshots" class="btn btn-outline">استعرض التطبيق</a>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots-section" id="screenshots">
+    <div class="container">
+      <h2 class="section-title">لقطات من التطبيق</h2>
+      <div class="divider"></div>
+      <div class="screenshot-track">
+        <img src="screenshots/1.png" alt="لقطة ١" loading="lazy" />
+        <img src="screenshots/2.png" alt="لقطة ٢" loading="lazy" />
+        <img src="screenshots/3.png" alt="لقطة ٣" loading="lazy" />
+        <img src="screenshots/4.png" alt="لقطة ٤" loading="lazy" />
+        <img src="screenshots/5.png" alt="لقطة ٥" loading="lazy" />
+        <img src="screenshots/6.png" alt="لقطة ٦" loading="lazy" />
+        <img src="screenshots/7.png" alt="لقطة ٧" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">مميزات التطبيق</h2>
+      <div class="divider"></div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🃏</div>
+          <h3>بطاقات تفاعلية</h3>
+          <p>بطاقات قابلة للقلب بثلاثة أبعاد تعرض الكلمة العربية ومعناها، مع إمكانية التمرير لتصنيف مستواك.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔁</div>
+          <h3>التكرار المتباعد</h3>
+          <p>نظام ذكي يعيد عرض الكلمات التي تحتاج إلى مراجعة في الوقت المناسب، مما يعزز الحفظ على المدى البعيد.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3>تصفح السور والأجزاء</h3>
+          <p>استعرض مفردات كل سورة أو جزء على حدة، وتتبّع تقدمك في حفظ الكلمات الجديدة والمراجعة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>إحصاءات تفصيلية</h3>
+          <p>تتبّع عدد الكلمات المحفوظة والمراجعة والجديدة لكل سورة وجزء، مع شريط مؤشرات واضح.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>خصوصية تامة</h3>
+          <p>جميع بياناتك محفوظة على جهازك فقط. لا إنترنت مطلوب، لا جمع للبيانات، لا حساب مطلوب.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <h3>واجهة عربية أصيلة</h3>
+          <p>تصميم من اليمين لليسار بخط عربي واضح، مع أرقام عربية أصيلة وألوان مستوحاة من الطبيعة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-section" id="video">
+    <div class="container">
+      <h2 class="section-title">تعرّف على التطبيق</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">فيديو تعريفي قريبًا — سيشرح كيفية استخدام التطبيق والاستفادة منه</p>
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="play-icon">▶</div>
+          <span>الفيديو التعريفي — قريبًا</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="download-section" id="download">
+    <div class="container">
+      <h2 class="section-title">حمّل التطبيق</h2>
+      <div class="divider" style="background: var(--amber);"></div>
+      <p class="section-subtitle">التطبيق في مرحلة المراجعة حاليًا، وسيكون متاحًا قريبًا</p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn" aria-label="App Store">
+          <span class="store-icon">🍎</span>
+          <span class="store-name">App Store</span>
+          <span class="store-badge">قريبًا</span>
+        </a>
+        <a href="#" class="store-btn" aria-label="Google Play">
+          <span class="store-icon">▶</span>
+          <span class="store-name">Google Play</span>
+          <span class="store-badge">قريبًا</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="mailto:tadabburalquean111@gmail.com">تواصل معنا</a>
+    </div>
+    <p>© ٢٠٢٦ تدبّر — جميع الحقوق محفوظة</p>
+  </footer>
+
+</body>
+</html>
